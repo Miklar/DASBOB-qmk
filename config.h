@@ -35,6 +35,8 @@
 //#define I2C1_CLOCK_SPEED 400000
 //#define I2C_DRIVER I2CD2
 
+#define UNICODE_SELECTED_MODES UC_MAC
+
 // Set the mouse settings to a comfortable speed/accuracy trade-off,
 // assuming a screen refresh rate of 60 Htz or higher
 // The default is 50. This makes the mouse ~3 times faster and more accurate

@@ -1,0 +1,2 @@
+qmk compile -c -kb dasbob -km miklar && qmk flash -kb dasbob -km miklar
+
