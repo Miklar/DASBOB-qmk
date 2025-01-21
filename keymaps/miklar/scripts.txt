@@ -1,2 +1,4 @@
 qmk compile -c -kb dasbob -km miklar && qmk flash -kb dasbob -km miklar
 
+qmk c2json keymaps/miklar/keymap.c --no-cpp | keymap parse -c 10 -q - >keymap.json
+
