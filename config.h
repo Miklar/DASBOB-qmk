@@ -36,6 +36,7 @@
 //#define I2C_DRIVER I2CD2
 
 #define UNICODE_SELECTED_MODES UNICODE_MODE_MACOS
+#define PERMISSIVE_HOLD
 
 // Set the mouse settings to a comfortable speed/accuracy trade-off,
 // assuming a screen refresh rate of 60 Htz or higher

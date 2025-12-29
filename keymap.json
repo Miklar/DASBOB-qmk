@@ -1,0 +1,105 @@
+layout: {qmk_keyboard: dasbob, layout_name: LAYOUT_split_3x5_3}
+layers:
+  L0:
+  - [Q, W, E, R, T, Y, U, I, O, P]
+  - - {t: A, h: LCTL}
+    - {t: S, h: LALT}
+    - {t: D, h: LGUI}
+    - {t: F, h: LSFT}
+    - G
+    - H
+    - {t: J, h: RSFT}
+    - {t: K, h: RGUI}
+    - {t: L, h: LALT}
+    - {t: Sft+SE DQUO, h: RCTL}
+  - [Z, X, C, V, B, N, M, SE COMM, SE DOT, SE SLSH]
+  - - ESC
+    - LT( NAV,SPC)
+    - LT( NUMBERS,TAB)
+    - LT( SYMBOLS,ENT)
+    - {t: SPC, h: MEH}
+    - BSPC
+  L1:
+  - - {t: ▽, type: trans}
+    - SE ARNG
+    - SE ADIA
+    - SE ODIA
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '7'
+    - '8'
+    - '9'
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {h: RALT}
+    - {h: LCTL}
+    - {h: LSFT}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: '4', h: LSFT}
+    - {t: '5', h: LCTL}
+    - {t: '6', h: RALT}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  L2:
+  - [SE GRV, SE TILD, SE HASH, SE AMPR, AltGr+SE 7, SE CIRC, Sft+SE LBRC, Sft+SE RBRC, SE LBRC, SE RBRC]
+  - [SE EXLM, SE QUES, SE COLN, SE EQL, SE DLR, SE AT, SE LPRN, SE RPRN, SE UNDS, SE SCLN]
+  - [SE PERC, SE MINS, SE ASTR, SE PLUS, Sft+AltGr+SE 7, SE SLSH, SE MINS, SE LABK, SE RABK, SE DQUO]
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  L3:
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - AGAIN
+    - UNDO
+    - COPY
+    - PASTE
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - LEFT
+    - DOWN
+    - UP
+    - RIGHT
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - SE ARNG
+    - SE ADIA
+    - SE ODIA
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}

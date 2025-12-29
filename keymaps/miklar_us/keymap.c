@@ -1,36 +1,13 @@
 #include QMK_KEYBOARD_H
 
-#include "keymap_swedish.h"
-#include "sendstring_swedish.h"
+#include "keymap_swedish_pro_mac_iso.h"
 
 enum dasbob_layers {
   _QWERTY,
   _NUMBERS,
   _SYMBOLS,
-  _ALT_SYMBOLS,
   _NAV
 };
-
-enum custom_keycodes {
-    MY_GRV = SAFE_RANGE,  // Start custom keycodes here
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MY_GRV:
-            if (record->event.pressed) {
-                if (get_mods() & MOD_MASK_SHIFT) {
-                    // Shift is held — send alternate keycode
-                    tap_code(SE_QUOT);  // ' as normal
-                } else {
-                    // No Shift — send regular keycode
-                    SEND_STRING("`");  // Example: sends `
-                }
-            }
-            return false;  // Skip further processing
-    }
-    return true;  // Process all other keycodes normally
-}
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -54,10 +31,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // CAGS - Ctrl / Alt / Gui  / Shift
 
     [_QWERTY] = LAYOUT_split_3x5_3(
-        KC_Q,    KC_W,  KC_E,            KC_R,              KC_T,           KC_Y,         KC_U,              KC_I,              KC_O,           KC_P,
-        LCTL_T(KC_A),   LALT_T(KC_S),    LGUI_T(KC_D),      LSFT_T(KC_F),  KC_G,           KC_H,         RSFT_T(KC_J),      RGUI_T(KC_K),      LALT_T(KC_L),   RCTL_T(S(SE_DQUO)),
-        KC_Z,    KC_X,              KC_C,            KC_V,            KC_B,             KC_N,         KC_M,              SE_COMM,           SE_DOT,         SE_SLSH,
-                                    KC_ESC,          LT(_NUMBERS, KC_SPC),          LT(_NAV, KC_TAB),             LT(_ALT_SYMBOLS, KC_ENT),        MEH_T(KC_SPC),           KC_BSPC
+        SE_ARNG,    SE_ADIA,  SE_ODIA,            KC_R,              KC_T,           KC_Y,         KC_U,              KC_I,              KC_O,           KC_P,
+        /*KC_Q,    KC_W,  KC_E,            KC_R,              KC_T,           KC_Y,         KC_U,              KC_I,              KC_O,           KC_P,*/
+        LCTL_T(KC_A),   LALT_T(KC_S),    LGUI_T(KC_D),      LSFT_T(KC_F),  KC_G,           KC_H,         RSFT_T(KC_J),      RGUI_T(KC_K),      LALT_T(KC_L),   RCTL_T(S(KC_DQUO)),
+        KC_Z,    KC_X,              KC_C,            KC_V,            KC_B,             KC_N,         KC_M,              KC_COMM,           KC_DOT,         KC_SLSH,
+                                    KC_ESC,          LT(_NUMBERS, KC_SPC),          LT(_NAV, KC_TAB),             LT(_SYMBOLS, KC_ENT),        MEH_T(KC_SPC),           KC_BSPC
     ),
 
     /*
@@ -70,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
      */
     [_NUMBERS] = LAYOUT_split_3x5_3(
-       _______, SE_ARNG,           SE_ADIA,         SE_ODIA,            _______,            _______,    KC_7,           KC_8,           KC_9,           _______,
+       _______, SE_ARNG,    SE_ADIA,  SE_ODIA,            _______,            _______,    KC_7,           KC_8,           KC_9,           _______,
        LCTL_T(XXXXXXX), LALT_T(XXXXXXX),   LGUI_T(XXXXXXX), LSFT_T(XXXXXXX),    _______,            _______,    RSFT_T(KC_4),   RGUI_T(KC_5),   LALT_T(KC_6),   RCTL_T(XXXXXXX),
        _______, _______,           _______,         _______,            _______,            KC_0,       KC_1,           KC_2,           KC_3,           _______,
                                     _______,          _______,          _______,            _______,        _______,          _______
@@ -87,27 +65,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
      */
     [_SYMBOLS] = LAYOUT_split_3x5_3(
-    MY_GRV,     SE_SECT,      S(SE_SECT),     SE_DQUO,     SE_DOT,            SE_AMPR,     SE_SCLN,      SE_LBRC,         SE_RBRC, SE_PERC,
-       SE_EXLM, SE_MINS,   SE_PLUS, SE_EQL,     SE_HASH,             ALGR(SE_7), SE_COLN,         SE_LPRN, SE_RPRN,    SE_QUES,
-        SE_CIRC,    SE_SLSH,      SE_ASTR,   S(ALGR(SE_7)),   SE_COMM,                SE_TILD,        SE_UNDS,      S(SE_LBRC),      S(SE_RBRC),    SE_AT,
+        KC_QUOT,     SE_LABK,      SE_RABK,     KC_DQUO,     KC_DOT,            KC_AMPR,     KC_SCLN,      SE_LBRC,         SE_RBRC, KC_PERC,
+       LCTL_T(KC_EXLM), LALT_T(KC_MINS),   LGUI_T(KC_PLUS), LSFT_T(KC_EQL),     KC_HASH,             KC_7,     RSFT_T(KC_COLN),         RGUI_T(KC_LPRN),  LALT_T(KC_RPRN),    RCTL_T(KC_QUES),
+        KC_CIRC,    KC_SLSH,      KC_ASTR,   S(ALGR(KC_7)),   KC_COMM,                KC_TILD,        KC_UNDS,      S(KC_LBRC),      S(KC_RBRC),    KC_AT,
                                     _______,          _______,          _______,             _______,        _______,          _______
-    ),
-
-    /*
-     * Alternative symbols
-     * ┌───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┐
-     * │ ` │ ~ │ # │ & │ | │       │ ^ │ { │ } │ [ │ ] │
-     * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-     * │ ! │ _ │ : │ = │ $ │       │@/"│ ( │ ) │ _ │ ; │
-     * ├───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┤
-     * │ % │ ? │ * │ + │ \ │       │ / │ - │ < │ > │ ' │
-     * └───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┘
-     */
-    [_ALT_SYMBOLS] = LAYOUT_split_3x5_3(
-        MY_GRV,     SE_TILD,     SE_HASH,     SE_AMPR,     ALGR(SE_7),       SE_CIRC,     S(SE_LBRC),   S(SE_RBRC),   SE_LBRC,     SE_RBRC,
-        SE_EXLM,    SE_UNDS,     SE_COLN,     SE_EQL,      SE_DLR,           SE_AT,       SE_LPRN,      SE_RPRN,      SE_UNDS,     SE_SCLN,
-        SE_PERC,    SE_QUES,     SE_ASTR,     SE_PLUS,     S(ALGR(SE_7)),    SE_SLSH,     SE_MINS,      SE_SECT,      S(SE_SECT),     SE_QUOT,
-                                        _______,          _______,          _______,          _______,      _______,      _______
     ),
 
     /*
@@ -122,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NAV] = LAYOUT_split_3x5_3(
        _______, _______,    _______,        _______,    _______,                    KC_AGAIN,       KC_UNDO,        KC_COPY,    KC_PASTE,           _______,
        LCTL_T(XXXXXXX), LALT_T(XXXXXXX),   LGUI_T(XXXXXXX), LSFT_T(XXXXXXX),     _______,                    KC_LEFT,        RSFT_T(KC_DOWN),        RGUI_T(KC_UP),      LALT_T(KC_RIGHT),   RCTL_T(_______),
-       _______, _______,    _______,        _______,    _______,                    SE_ARNG,        SE_ADIA,        SE_ODIA,    _______,           _______,
+        _______, _______,    _______,        _______,    _______,                    SE_ARNG,           SE_ADIA,         SE_ODIA,    _______,           _______,
                                     _______,          _______,          _______,            _______,        _______,          _______
     )
 };
